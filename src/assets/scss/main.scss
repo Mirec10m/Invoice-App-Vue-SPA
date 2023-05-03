@@ -1,0 +1,182 @@
+$light-grey: #fafafa;
+$grey: #eee;
+$dark-grey: #666;
+$border-color: #dee2e6; // bootstrap 5 border color
+
+html, body, #app{
+  height: 100%;
+}
+
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// Page preloader
+.page-loader {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.not-found{
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  width: 100%;
+  &-heading{
+    font-size: 36px;
+    font-weight: 700;
+  }
+  &-subheading{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &-link{
+    margin-top: 20px;
+  }
+}
+
+.text-right{
+  text-align: right;
+}
+
+.min-h-100{
+  min-height: 100%;
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover{
+  z-index: 3;
+}
+
+.logo{
+  width: 50px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.login-card{
+  max-width: 25rem;
+  margin: 10em auto 0;
+  background-color: $light-grey;
+}
+
+.border-right{
+  border-right: 1px solid $border-color;
+}
+
+.mr-5{
+  margin-right: 5px;
+}
+
+.overflow-dots{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.content{
+  background-color: $light-grey;
+  padding: 20px;
+  width: 100%;
+  border-left: 1px solid $grey;
+}
+
+.summary{
+  border-bottom: 1px solid $border-color;
+  background-color: $grey;
+  &-label{
+    font-size: 22px;
+  }
+  &-sum{
+    font-size: 26px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.invoice-form{
+  .card{
+    label{
+      color: $dark-grey;
+      font-size: 14px;
+    }
+  }
+
+  &-owner{
+    font-size: 16px;
+  }
+
+  &-sum{
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
+
+// Vue Select
+.vs__dropdown-toggle{
+  padding: 4px !important;
+  border: 1px solid #ced4da !important;
+  border-radius: .375rem !important;
+}
+.vs__selected{
+  margin: 2px !important;
+}
+.vs__search, .vs__search:focus{
+  margin: 2px 0 !important;
+}
+
+// Dropdown menu - Actions
+.menu-items{
+  li{
+    button{
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  hr{
+    border-top: 1px solid grey;
+    margin: 4px 0;
+  }
+}
+.custom-dropdown-btn{
+  background-color: transparent;
+  color: grey;
+  border: none;
+  transition: none;
+  &:hover, &.show, &:focus{
+    background-color: transparent !important;
+    color: black !important;
+    border: none !important;
+    outline: none !important;
+  }
+  &::after{
+    display: none;
+  }
+}
+.active{
+  .custom-dropdown-btn{
+    color: white;
+  }
+}
