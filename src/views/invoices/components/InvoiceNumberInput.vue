@@ -32,7 +32,7 @@ if(props.editing !== true){
 }
 
 function getLastInvoice(){
-    api.get('/api/last-invoice')
+    api.get('/api/invoices/last')
         .then(res => setInvoiceNumber(res.data.data))
         .catch(error => console.log(error))
 }
