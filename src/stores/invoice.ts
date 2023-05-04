@@ -13,7 +13,7 @@ export const useInvoiceStore = defineStore( 'invoice', () => {
     }
 
     function getSum(filter = '') {
-        api.get('/api/invoices/sum' + '?filter=' + filter)
+        api.get('/api/invoices/get/sum' + '?filter=' + filter)
             .then(res => sum.value = res.data)
             .catch(error => console.log(error))
     }
