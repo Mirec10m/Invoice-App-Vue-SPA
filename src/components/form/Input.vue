@@ -10,8 +10,11 @@ interface Props {
 }
 
 defineProps<Props>()
-defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 
+const updateValue = (e: Event) => {
+    emits('update:modelValue', (e.target as HTMLInputElement).value)
+};
 </script>
 
 <template>
@@ -22,7 +25,7 @@ defineEmits(['update:modelValue'])
         :value="modelValue"
         :type="type"
         :placeholder="placeholder"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="updateValue"
         class="form-control"
     />
     <div v-if="errors">

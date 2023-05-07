@@ -3,7 +3,7 @@ import { useAuthStore } from '@/stores/auth'
 import { storeToRefs } from 'pinia'
 
 const auth = useAuthStore()
-const {user} = storeToRefs(auth)
+const { user } = storeToRefs(auth)
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const {user} = storeToRefs(auth)
             {{ user.company_city }},
             {{ user.company_country }}
         </div>
-        <div>IČO: {{ user.bussines_id }}</div>
+        <div>IČO: {{ user.business_id }}</div>
         <div>DIČ: {{ user.tax_id }}</div>
         <small>{{ user.vat ? 'Platiteľ DPH' : 'Nie je platiteľ DPH' }}</small>
     </div>

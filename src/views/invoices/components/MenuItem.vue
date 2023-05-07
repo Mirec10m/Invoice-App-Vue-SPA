@@ -3,7 +3,15 @@ import { toRef } from 'vue'
 import api from '@/axios/api'
 
 interface Props {
-    item: Object
+    item: {
+        id: number,
+        number: string,
+        formatted_created_at: string,
+        formatted_sum: string,
+        customer: {
+            name: string
+        }
+    }
 }
 
 const props = defineProps<Props>()

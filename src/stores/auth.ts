@@ -8,10 +8,26 @@ export const useAuthStore = defineStore('user', () => {
 
     const preloading = ref(false)
     const authenticated = ref(false)
-    const user = ref(null)
+
+    interface User {
+        company_name?: string,
+        company_address?: string,
+        company_postal_code?: string,
+        company_city?: string,
+        company_country?: string,
+        business_id?: string,
+        tax_id?: string,
+        vat?: string,
+    }
+    const user = ref<User>({})
+
+    interface Errors {
+        email?: Object,
+        password?: Object
+    }
+    const errors = ref<Errors>({})
 
     const redirect = ref('/')
-    const errors = ref(null)
 
     function setRedirect(value: string) {
         redirect.value = value
@@ -44,7 +60,7 @@ export const useAuthStore = defineStore('user', () => {
                         authenticated.value = true
 
                         router.push(redirect.value)
-                        errors.value = null
+                        errors.value = {}
                     })
                     .catch(error => {
                         if (error.response.status == 422) {
@@ -58,7 +74,7 @@ export const useAuthStore = defineStore('user', () => {
     function logout() {
         api.post('/logout')
             .then(res => {
-                user.value = null
+                user.value = {}
                 authenticated.value = false
                 redirect.value = '/'
 

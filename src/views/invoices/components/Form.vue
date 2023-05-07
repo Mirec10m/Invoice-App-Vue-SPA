@@ -8,7 +8,7 @@ import InvoiceNumberInput from '@/views/invoices/components/InvoiceNumberInput.v
 
 const customerStore = useCustomerStore()
 customerStore.getCustomers()
-const {customers} = storeToRefs(customerStore)
+const { customers } = storeToRefs(customerStore)
 
 defineEmits(['submit'])
 const props = defineProps(['errors', 'data', 'editing'])

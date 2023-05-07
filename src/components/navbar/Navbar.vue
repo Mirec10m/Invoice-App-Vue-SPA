@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import LogoutButton from '@/components/navbar/LogoutButton.vue'
 import { useAuthStore } from '@/stores/auth'
 import { storeToRefs } from 'pinia'

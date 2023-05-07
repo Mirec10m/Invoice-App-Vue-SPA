@@ -18,6 +18,10 @@ interface Invoice {
 const props = defineProps<Props>()
 const emits = defineEmits(['update:modelValue'])
 
+const updateValue = (e: Event) => {
+    emits('update:modelValue', (e.target as HTMLInputElement).value)
+};
+
 const value = computed({
     get() {
         return props.modelValue
@@ -38,7 +42,7 @@ function getLastInvoice(){
 }
 
 function setInvoiceNumber(invoice: Invoice){
-    value.value = Number(invoice.number) + 1
+    value.value = (Number(invoice.number) + 1).toString()
 }
 </script>
 
@@ -51,7 +55,7 @@ function setInvoiceNumber(invoice: Invoice){
         :type="type"
         :placeholder="placeholder"
         class="form-control"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="updateValue"
     />
     <div v-if="errors">
         <div v-for="error in errors">

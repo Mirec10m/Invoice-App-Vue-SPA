@@ -4,7 +4,7 @@ import { useAuthStore } from '@/stores/auth'
 import { storeToRefs } from 'pinia'
 
 const auth = useAuthStore()
-const {errors} = storeToRefs(auth)
+const { errors } = storeToRefs(auth)
 
 const data = ref({
     email: "user@test.com",

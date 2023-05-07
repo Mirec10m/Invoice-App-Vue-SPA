@@ -2,7 +2,12 @@
 import { toRef } from 'vue'
 
 interface Props {
-    item: Object
+    item: {
+        id: number,
+        name: string,
+        city: string,
+        address: string
+    }
 }
 
 const props = defineProps<Props>()
