@@ -6,7 +6,7 @@ import MenuItem from '@/views/customers/components/MenuItem.vue'
 import DeleteModal from '@/views/customers/components/DeleteModal.vue'
 
 const customerStore = useCustomerStore()
-const {customers} = storeToRefs(customerStore)
+const { customers } = storeToRefs(customerStore)
 
 customerStore.getCustomers()
 

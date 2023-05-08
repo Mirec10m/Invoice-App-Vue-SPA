@@ -6,6 +6,11 @@ import FormSupplier from '@/views/invoices/components/FormSupplier.vue'
 import Input from '@/components/form/Input.vue'
 import InvoiceNumberInput from '@/views/invoices/components/InvoiceNumberInput.vue'
 
+interface Customer {
+    id: number,
+    name: string
+}
+
 const customerStore = useCustomerStore()
 customerStore.getCustomers()
 const { customers } = storeToRefs(customerStore)
@@ -63,7 +68,7 @@ function setDueDays(){
                         <VueSelect
                             v-model="data.customer_id"
                             label="name"
-                            :reduce="customer => customer.id"
+                            :reduce="(customer: Customer) => customer.id"
                             :options="customers"
                             placeholder="Vyberte zákazníka"
                         />

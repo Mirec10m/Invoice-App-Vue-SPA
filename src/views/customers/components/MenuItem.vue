@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { toRef } from 'vue'
 
+interface Customer {
+    id: number,
+    name: string,
+    city: string,
+    address: string
+}
+
 interface Props {
-    item: {
-        id: number,
-        name: string,
-        city: string,
-        address: string
-    }
+    item: Customer
 }
 
 const props = defineProps<Props>()

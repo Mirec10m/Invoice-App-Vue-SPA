@@ -6,7 +6,7 @@ import MenuItem from '@/views/invoices/components/MenuItem.vue'
 import DeleteModal from '@/views/invoices/components/DeleteModal.vue'
 
 const invoiceStore = useInvoiceStore()
-const {invoices, sum} = storeToRefs(invoiceStore)
+const { invoices, sum } = storeToRefs(invoiceStore)
 
 invoiceStore.getInvoices()
 invoiceStore.getSum()

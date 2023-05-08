@@ -3,7 +3,12 @@ import { ref } from 'vue'
 import api from '@/axios/api'
 
 export const useInvoiceStore = defineStore( 'invoice', () => {
-    const invoices = ref(null)
+    interface Invoice {
+        id: number,
+        number: string
+    }
+
+    const invoices = ref<Invoice[] | null>(null)
     const sum = ref(0)
 
     function getInvoices(filter = '') {
