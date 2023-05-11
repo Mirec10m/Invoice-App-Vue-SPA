@@ -32,7 +32,8 @@ function getInvoice(id: string){
             data.value = invoice
 
             // Set customer_id
-            data.value.customer_id = res.data.data.customer.id
+            if (res.data.data.customer)
+                data.value.customer_id = res.data.data.customer.id
 
             // Set due days
             if(invoice.issued_at && invoice.due_at){

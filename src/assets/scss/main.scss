@@ -180,3 +180,20 @@ input:focus{
     color: white;
   }
 }
+
+.error-color{
+  color: #c80900;
+}
+.error-border{
+  border: 1px solid #c80900;
+}
+.error-select{
+  .vs__dropdown-toggle{
+    border: 1px solid #c80900 !important;
+  }
+}
+.error-datepicker{
+  .dp__input{
+    border: 1px solid #c80900 !important;
+  }
+}

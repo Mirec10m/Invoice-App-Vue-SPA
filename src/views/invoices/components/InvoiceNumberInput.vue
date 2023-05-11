@@ -8,7 +8,8 @@ interface Props {
     type: string,
     placeholder?: string,
     errors?: object,
-    editing?: boolean
+    editing?: boolean,
+    required?: boolean
 }
 
 interface Invoice {
@@ -37,7 +38,7 @@ if(props.editing !== true){
 
 function getLastInvoice(){
     api.get('/api/invoices/get/last')
-        .then(res => setInvoiceNumber(res.data.data))
+        .then(res => setInvoiceNumber(res.data))
         .catch(error => console.log(error))
 }
 
@@ -49,16 +50,17 @@ function setInvoiceNumber(invoice: Invoice){
 <template>
     <label v-if="label" class="form-label">
         {{ label }}
+        <span v-if="required" class="error-color">*</span>
     </label>
     <input
         :value="value"
         :type="type"
         :placeholder="placeholder"
-        class="form-control"
+        :class="['form-control', errors ? 'error-border' : '']"
         @input="updateValue"
     />
     <div v-if="errors">
-        <div v-for="error in errors">
+        <div v-for="error in errors" class="error-color">
             {{ error }}
         </div>
     </div>

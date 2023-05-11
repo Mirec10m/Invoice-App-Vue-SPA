@@ -6,7 +6,8 @@ interface Props {
     modelValue?: string,
     type: string,
     placeholder?: string,
-    errors?: object
+    errors?: object,
+    required?: boolean
 }
 
 defineProps<Props>()
@@ -20,16 +21,17 @@ const updateValue = (e: Event) => {
 <template>
     <label v-if="label" class="form-label">
         {{ label }}
+        <span v-if="required" class="error-color">*</span>
     </label>
     <input
         :value="modelValue"
         :type="type"
         :placeholder="placeholder"
+        :class="['form-control', errors ? 'error-border' : '']"
         @input="updateValue"
-        class="form-control"
     />
     <div v-if="errors">
-        <div v-for="error in errors">
+        <div v-for="error in errors" class="error-color">
             {{ error }}
         </div>
     </div>

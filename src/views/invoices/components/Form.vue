@@ -47,7 +47,10 @@ function setDueDays(){
     <div class="invoice-form container">
         <div class="row mb-3 g-3 align-items-center">
             <div class="col-auto">
-                <label class="col-form-label-lg">Faktúra č.:</label>
+                <label class="col-form-label-lg">
+                    Faktúra č.
+                    <span class="error-color">*</span>
+                </label>
             </div>
             <div class="col-auto">
                 <InvoiceNumberInput
@@ -71,10 +74,11 @@ function setDueDays(){
                             :reduce="(customer: Customer) => customer.id"
                             :options="customers"
                             placeholder="Vyberte zákazníka"
+                            :class="errors && errors.customer_id ? 'error-select' : ''"
                         />
 
                         <div v-if="errors && errors.customer_id">
-                            <div v-for="error in errors.customer_id">
+                            <div v-for="error in errors.customer_id" class="error-color">
                                 {{ error }}
                             </div>
                         </div>
@@ -101,10 +105,11 @@ function setDueDays(){
                             :format="'dd. MM. yyyy'"
                             :enable-time-picker="false"
                             auto-apply
+                            :class="errors && errors.issued_at ? 'error-datepicker' : ''"
                         />
 
                         <div v-if="errors && errors.issued_at">
-                            <div v-for="error in errors.issued_at">
+                            <div v-for="error in errors.issued_at" class="error-color">
                                 {{ error }}
                             </div>
                         </div>
@@ -118,10 +123,11 @@ function setDueDays(){
                             :format="'dd. MM. yyyy'"
                             :enable-time-picker="false"
                             auto-apply
+                            :class="errors && errors.delivered_at ? 'error-datepicker' : ''"
                         />
 
                         <div v-if="errors && errors.delivered_at">
-                            <div v-for="error in errors.delivered_at">
+                            <div v-for="error in errors.delivered_at" class="error-color">
                                 {{ error }}
                             </div>
                         </div>
@@ -143,10 +149,11 @@ function setDueDays(){
                             :format="'dd. MM. yyyy'"
                             :enable-time-picker="false"
                             auto-apply
+                            :class="errors && errors.due_at ? 'error-datepicker' : ''"
                         />
 
                         <div v-if="errors && errors.due_at">
-                            <div v-for="error in errors.due_at">
+                            <div v-for="error in errors.due_at" class="error-color">
                                 {{ error }}
                             </div>
                         </div>

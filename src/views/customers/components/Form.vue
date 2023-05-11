@@ -36,6 +36,7 @@ const heading = computed(() => {
                                     type="text"
                                     v-model="data.name"
                                     :errors="errors.name"
+                                    :required="true"
                                 />
                             </div>
                         </div>
@@ -49,6 +50,7 @@ const heading = computed(() => {
                                     type="text"
                                     v-model="data.address"
                                     :errors="errors.address"
+                                    :required="true"
                                 />
                             </div>
                         </div>
@@ -62,6 +64,7 @@ const heading = computed(() => {
                                     type="text"
                                     v-model="data.postal_code"
                                     :errors="errors.postal_code"
+                                    :required="true"
                                 />
                             </div>
                         </div>
@@ -73,6 +76,7 @@ const heading = computed(() => {
                                     type="text"
                                     v-model="data.city"
                                     :errors="errors.city"
+                                    :required="true"
                                 />
                             </div>
                         </div>
@@ -85,6 +89,7 @@ const heading = computed(() => {
                                 type="text"
                                 v-model="data.country"
                                 :errors="errors.country"
+                                :required="true"
                             />
                         </div>
                     </div>
@@ -99,6 +104,7 @@ const heading = computed(() => {
                                     type="text"
                                     v-model="data.business_id"
                                     :errors="errors.business_id"
+                                    :required="true"
                                 />
                             </div>
                         </div>
@@ -110,6 +116,7 @@ const heading = computed(() => {
                                     type="text"
                                     v-model="data.tax_id"
                                     :errors="errors.tax_id"
+                                    :required="true"
                                 />
                             </div>
                         </div>
