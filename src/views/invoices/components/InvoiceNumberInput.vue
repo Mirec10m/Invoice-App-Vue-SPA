@@ -42,7 +42,7 @@ function getLastInvoice(){
 }
 
 function setInvoiceNumber(invoice: Invoice){
-    value.value = (Number(invoice.number) + 1).toString()
+    value.value = invoice ? (Number(invoice.number) + 1).toString() : new Date().getFullYear().toString() + '00001'
 }
 </script>
 
